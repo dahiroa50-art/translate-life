@@ -488,32 +488,31 @@ JSON format:
               {/* Message decode */}
               {result.meaning && <MessageDecode data={result}/>}
 
-              {/* Actions */}
-              <div style={{ display:"flex", gap:10, marginTop:20 }}>
-                <button className="ghost-btn" onClick={resetAll} style={{
-                  flex:1, padding:"12px", border:"1px solid rgba(255,255,255,0.09)",
-                  borderRadius:12, background:"transparent",
-                  color:"rgba(240,237,232,0.35)", fontSize:12, fontFamily:"'DM Mono',monospace"
-                }}>
-              {/* Feedback Widget */}
-              <div style={{
-                 marginTop: 20,
-                 padding: "18px 20px",
-                 background: "#FDF9F3",
-                 border: "1px solid #E8E0D5",
-                 borderRadius: 16,
+        {/* Actions */}
+             {/* Feedback Widget */}
+             <div style={{
+               marginTop: 20,
+               padding: "18px 20px",
+               background: "#FDF9F3",
+               border: "1px solid #E8E0D5",
+               borderRadius: 16,
+             }}>
+               <FeedbackWidget mode={mode} input={input} />
+             </div>
+
+             <div style={{ display:"flex", gap:10, marginTop:12 }}>
+               <button className="ghost-btn" onClick={resetAll} style={{
+                 flex:1, padding:"12px", border:"1px solid rgba(255,255,255,0.09)",
+                 borderRadius:12, background:"transparent",
+                 color:"rgba(240,237,232,0.35)", fontSize:12, fontFamily:"'DM Mono',monospace"
                }}>
-                 <FeedbackWidget mode={mode} input={input} />
-        </div>
+                 ↩ Try another
+               </button>
+               {result.steps && (
+                 <button className="ghost-btn" onClick={() => {
+                   setActiveStep(0); setCompletedSteps(new Set()); setShowAll(false);
+                 }} style={{
 
-        <button onClick={resetAll}>
-
-                  ↩ Try another
-                </button>
-                {result.steps && (
-                  <button className="ghost-btn" onClick={() => {
-                    setActiveStep(0); setCompletedSteps(new Set()); setShowAll(false);
-                  }} style={{
                     flex:1, padding:"12px", border:"1px solid rgba(255,255,255,0.09)",
                     borderRadius:12, background:"transparent",
                     color:"rgba(240,237,232,0.35)", fontSize:12, fontFamily:"'DM Mono',monospace"
