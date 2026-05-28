@@ -7,6 +7,8 @@ import LoadingDots from "./ui/LoadingDots";
 import CountdownTimer from "./ui/CountdownTimer";
 import MessageDecode from "./ui/MessageDecode";
 import StepCard from "./ui/StepCard";
+import FeedbackWidget from "./FeedbackWidget";
+
 // ─── Styles ───────────────────────────────────────────────────────────────────
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,500&family=DM+Mono:wght@300;400;500&display=swap');
@@ -493,6 +495,19 @@ JSON format:
                   borderRadius:12, background:"transparent",
                   color:"rgba(240,237,232,0.35)", fontSize:12, fontFamily:"'DM Mono',monospace"
                 }}>
+              {/* Feedback Widget */}
+              <div style={{
+                 marginTop: 20,
+                 padding: "18px 20px",
+                 background: "#FDF9F3",
+                 border: "1px solid #E8E0D5",
+                 borderRadius: 16,
+               }}>
+                 <FeedbackWidget mode={mode} input={input} />
+        </div>
+
+        <button onClick={resetAll}>
+
                   ↩ Try another
                 </button>
                 {result.steps && (
